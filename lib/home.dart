@@ -19,7 +19,7 @@ class MyHomePage extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) =>  MainScreen(),
+        builder: (context) =>   MainScreen(),
       ),
     );
   }
@@ -30,33 +30,34 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             // Using the function for SnackBar
-            _buildGestureText(
-              context,
-              'Click here to show toast message',
-                  () => _showSnackBar(context),
-            ),
-            const SizedBox(height: 20),
+            // Hidden for now
+            // _buildGestureText(
+            //   context,
+            //   'Click here to show toast message',
+            //       () => _showSnackBar(context),
+            // ),
+            // const SizedBox(height: 20),
             // Using the function for navigation to MainScreen
-            _buildGestureText(
-              context,
-              'Click here to go to MainScreen',
-                  () => _navigateToMainScreen(context),
-            ),
+            // _buildGestureText(
+            //   context,
+            //   'Click here to go to MainScreen',
+            //       () => _navigateToMainScreen(context),
+            // ),
           ],
         ),
       ),
       // FloatingActionButton added here
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // You can add any action here; for example, show a SnackBar
-          _showSnackBar(context);
+          // Navigate to the /home route (this will use the named route defined below)
+          Navigator.pushNamed(context, '/home');
         },
-        tooltip: 'Show SnackBar',
+        tooltip: 'Go to MainScreen',
         child: const Icon(Icons.add), // Icon for the FloatingActionButton
       ),
     );
@@ -70,10 +71,4 @@ class MyHomePage extends StatelessWidget {
       child: Text(text),
     );
   }
-}
-// Main function
-void main() {
-  runApp(const MaterialApp(
-    home: MyHomePage(),
-  ));
 }

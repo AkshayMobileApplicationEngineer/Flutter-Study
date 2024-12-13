@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const MyHomePage(),
-        '/Home': (context) => MainScreen(),
+        '/home': (context) => MainScreen(),
       },
       theme: ThemeData(
         brightness: Brightness.dark,
